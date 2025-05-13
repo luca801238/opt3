@@ -3,7 +3,7 @@ public class KamerRetrospective extends Kamer {
 
     @Override
     public void startOpdracht() {
-        System.out.println("🔁 Sprint Retrospective: Wat leren we?");
+        System.out.println("Sprint Retrospective:");
         System.out.println("Wat bespreek je in een retrospective?");
         System.out.println("A: Hoe we kunnen verbeteren als team");
         System.out.println("B: Wie het meeste werk deed");

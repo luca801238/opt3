@@ -5,7 +5,7 @@ public class KamerPlanning extends Kamer {
 
     @Override
     public void startOpdracht() {
-        System.out.println("📌 Sprint Planning: Kies de juiste taken.");
+        System.out.println("Sprint Planning: Kies de juiste taken.");
         System.out.println("Welke taken passen in een sprint van 2 weken?");
         System.out.println("A: 50 taken | B: 5 taken | C: 500 taken");
     }

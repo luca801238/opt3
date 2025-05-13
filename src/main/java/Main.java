@@ -5,7 +5,7 @@ public class Main {
         Spel spel = new Spel();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("🎮 Welkom bij Scrum Escape – De Kameruitdaging!");
+        System.out.println("Welkom bij Scrum Escape – De Kameruitdaging!");
         System.out.println("Typ 'status' of geef antwoorden op de opdrachten.");
         System.out.println("------------------------------------------------");
 

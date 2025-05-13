@@ -3,7 +3,7 @@ public class KamerReview extends Kamer {
 
     @Override
     public void startOpdracht() {
-        System.out.println("🔍 Sprint Review: Feedback verwerken.");
+        System.out.println("Sprint Review:");
         System.out.println("Wat is het doel van de Sprint Review?");
         System.out.println("A: Alleen code nakijken");
         System.out.println("B: Feedback van stakeholders verzamelen");

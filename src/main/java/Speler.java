@@ -16,12 +16,12 @@ public class Speler {
     }
 
     public void status() {
-        System.out.println("🧍 Je bent nu in: " + huidigeKamer.getNaam());
-        System.out.println("✅ Aantal kamers gehaald: " + kamersGehaald);
+        System.out.println("Je bent nu in: " + huidigeKamer.getNaam());
+        System.out.println("Aantal kamers gehaald: " + kamersGehaald);
         if (heeftMonster) {
-            System.out.println("⚠️ Je hebt een monster te verslaan!");
+            System.out.println("Je hebt een monster te verslaan!");
         } else {
-            System.out.println("🎉 Geen monsters actief.");
+            System.out.println("Geen monsters actief.");
         }
     }
 

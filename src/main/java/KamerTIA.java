@@ -3,7 +3,7 @@ public class KamerTIA extends Kamer {
 
     @Override
     public void startOpdracht() {
-        System.out.println("🏁 Finale Kamer – Waarom Scrum?");
+        System.out.println("Final Kamer – Waarom Scrum?");
         System.out.println("Wat is het belangrijkste doel van Scrum?");
         System.out.println("A: Zoveel mogelijk meetings houden");
         System.out.println("B: Transparantie, inspectie en aanpassing voor betere samenwerking");
@@ -17,7 +17,7 @@ public class KamerTIA extends Kamer {
 
     @Override
     public String getNaam() {
-        return "Finale TIA Kamer";
+        return "Final TIA Kamer";
     }
 
     @Override

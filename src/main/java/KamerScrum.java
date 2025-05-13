@@ -3,7 +3,7 @@ public class KamerScrum extends Kamer {
 
     @Override
     public void startOpdracht() {
-        System.out.println("📅 Daily Scrum: Wie geeft welke update?");
+        System.out.println("Daily Scrum:");
         System.out.println("Vraag: Wat zeg je tijdens een Daily Scrum?");
         System.out.println("A: Wat ik gisteren heb gegeten");
         System.out.println("B: Wat ik gisteren heb gedaan, wat ik vandaag ga doen en of ik blokkades heb");

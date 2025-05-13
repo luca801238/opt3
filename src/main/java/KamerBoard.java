@@ -3,7 +3,7 @@ public class KamerBoard extends Kamer {
 
     @Override
     public void startOpdracht() {
-        System.out.println("📋 Scrum Board: Hoe richt je het goed in?");
+        System.out.println("Scrum Board:");
         System.out.println("Wat hoort niet thuis op een Scrum Board?");
         System.out.println("A: Taken, user stories, epics");
         System.out.println("B: Stakeholder feedback");

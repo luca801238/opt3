@@ -1,5 +1,5 @@
-// Spel.java – eindigt automatisch na laatste kamer
 import java.util.*;
+import java.sql.*;
 
 public class Spel {
     private Speler speler;
@@ -10,8 +10,10 @@ public class Spel {
     private Set<Integer> voltooideKamers = new HashSet<>();
 
     public Spel() {
-        speler = new Speler();
         scanner = new Scanner(System.in);
+        System.out.print("Voer je naam in: ");
+        String naam = scanner.nextLine();
+        speler = new Speler(naam);
 
         kamers = new ArrayList<>();
         kamers.add(new KamerPlanning());
@@ -21,6 +23,7 @@ public class Spel {
         kamers.add(new KamerRetrospective());
         kamers.add(new KamerTIA());
 
+        huidigeKamerIndex = SpelerDAO.laadHuidigeKamer(naam);
         speler.setHuidigeKamer(kamers.get(huidigeKamerIndex));
     }
 
@@ -52,11 +55,11 @@ public class Spel {
                 System.out.println("Je bent nu in kamer " + (huidigeKamerIndex + 1) + ": " + speler.getHuidigeKamer().getNaam());
                 speler.getHuidigeKamer().startOpdracht();
                 opdrachtGestart = true;
-            } else if (!voltooideKamers.contains(huidigeKamerIndex) && input.startsWith("ga naar kamer")) {
-                System.out.println("Je moet eerst de kamer voltooien voordat je verder kan!");
-            }
 
-            else {
+                SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
+            } else if (!voltooideKamers.contains(huidigeKamerIndex)) {
+                System.out.println("Je moet eerst de kamer voltooien voordat je verder kan!");
+            } else {
                 System.out.println("Je kunt alleen naar de volgende kamer gaan: 'ga naar kamer " + (huidigeKamerIndex + 2) + "'");
             }
             return;
@@ -79,6 +82,8 @@ public class Spel {
                 speler.voegGehaaldeKamerToe();
                 voltooideKamers.add(huidigeKamerIndex);
                 opdrachtGestart = false;
+
+                SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
             } else {
                 System.out.println("Nog steeds fout. Probeer opnieuw.");
             }
@@ -95,6 +100,8 @@ public class Spel {
                 speler.voegGehaaldeKamerToe();
                 voltooideKamers.add(huidigeKamerIndex);
                 opdrachtGestart = false;
+
+                SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
 
                 if (huidigeKamerIndex == kamers.size() - 1) {
                     System.out.println("Je hebt alle kamers doorlopen en het spel uitgespeeld! Goed gedaan!");

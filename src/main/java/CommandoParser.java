@@ -3,7 +3,7 @@ public class CommandoParser {
         return input.startsWith("ga naar kamer");
     }
 
-    public static int extractKamernummer(String input) {
+    public static int haalopKamernummer(String input) {
         return Integer.parseInt(input.replaceAll("\\D+", ""));
     }
 }

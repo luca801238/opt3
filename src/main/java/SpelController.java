@@ -1,6 +1,7 @@
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Scanner;
 
 public class SpelController {
     private Speler speler;
@@ -8,6 +9,7 @@ public class SpelController {
     private int huidigeKamerIndex = 0;
     private boolean opdrachtGestart = false;
     private Set<Integer> voltooideKamers = new HashSet<>();
+    Scanner scanner = new Scanner(System.in);
 
     public SpelController() {
         speler = new Speler();
@@ -24,7 +26,15 @@ public class SpelController {
 
     public void verwerkCommando(String input) {
         if (CommandoParser.isGaNaarKamer(input)) {
-            int gevraagdNummer = CommandoParser.extractKamernummer(input);
+            // Oude fix: vraag opnieuw input zolang er geen nummer is
+            String inputText = input.replaceAll("\\D+", "");
+            while (inputText.isEmpty()) {
+                System.out.println("Type naar welke kamer je wilt gaan.");
+                input = scanner.nextLine();
+                inputText = input.replaceAll("\\D+", "");
+            }
+
+            int gevraagdNummer = Integer.parseInt(inputText);
             verwerkKamerNavigatie(gevraagdNummer);
         } else if (input.equalsIgnoreCase("status")) {
             speler.status();
@@ -32,6 +42,7 @@ public class SpelController {
             verwerkOpdracht(input);
         }
     }
+
 
     private void verwerkKamerNavigatie(int gevraagdNummer) {
         if (!speler.heeftMonster() && voltooideKamers.contains(huidigeKamerIndex)

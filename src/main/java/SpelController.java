@@ -26,15 +26,12 @@ public class SpelController {
 
     public void verwerkCommando(String input) {
         if (CommandoParser.isGaNaarKamer(input)) {
-            // Oude fix: vraag opnieuw input zolang er geen nummer is
-            String inputText = input.replaceAll("\\D+", "");
-            while (inputText.isEmpty()) {
+            while (!input.matches(".*\\d.*")) {
                 System.out.println("Type naar welke kamer je wilt gaan.");
                 input = scanner.nextLine();
-                inputText = input.replaceAll("\\D+", "");
             }
 
-            int gevraagdNummer = Integer.parseInt(inputText);
+            int gevraagdNummer = CommandoParser.haalopKamernummer(input);
             verwerkKamerNavigatie(gevraagdNummer);
         } else if (input.equalsIgnoreCase("status")) {
             speler.status();

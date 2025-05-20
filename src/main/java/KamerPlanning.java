@@ -12,14 +12,12 @@ public class KamerPlanning extends Kamer {
 
     @Override
     public boolean checkAntwoord(String input) {
-        boolean juist = input.trim().equalsIgnoreCase("B");
-        notifyObservers(juist); // Observer updates activeren
-        return juist;
+        return input.trim().equalsIgnoreCase("B");
     }
 
     @Override
     public String getNaam() {
-        return ("Sprint Planning");
+        return "Sprint Planning";
     }
 
     @Override

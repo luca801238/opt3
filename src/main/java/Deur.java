@@ -8,3 +8,4 @@ public class Deur implements Observer {
         }
     }
 }
+// test

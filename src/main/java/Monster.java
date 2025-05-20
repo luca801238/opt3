@@ -1,4 +1,4 @@
-public class Monster {
+public class Monster implements Observer {
     private String naam;
     private Actie actie;
 
@@ -22,6 +22,15 @@ public class Monster {
     public Monster(String naam, Actie actie) {
         this.naam = naam;
         this.actie = actie;
+    }
+
+    @Override
+    public void update(boolean juistAntwoord) {
+        if (!juistAntwoord) {
+            toonMonster();
+        } else {
+            System.out.println("Het monster " + naam + " verdwijnt.");
+        }
     }
 
     public void toonMonster() {

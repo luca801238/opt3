@@ -16,6 +16,14 @@ public class Speler {
         return huidigeKamer;
     }
 
+    public void setKamersGehaald(int aantal) {
+        this.kamersGehaald = aantal;
+    }
+
+    public int getKamersGehaald() {
+        return kamersGehaald;
+    }
+
     public void voegGehaaldeKamerToe() {
         kamersGehaald++;
     }

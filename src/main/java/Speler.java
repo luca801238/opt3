@@ -1,15 +1,11 @@
 public class Speler {
-    private String naam;
     private Kamer huidigeKamer;
     private int kamersGehaald = 0;
     private boolean heeftMonster = false;
+    private String naam;
 
     public Speler(String naam) {
         this.naam = naam;
-    }
-
-    public String getNaam() {
-        return naam;
     }
 
     public void setHuidigeKamer(Kamer kamer) {
@@ -25,10 +21,13 @@ public class Speler {
     }
 
     public void status() {
-        System.out.println("Naam: " + naam);
         System.out.println("Je bent nu in: " + huidigeKamer.getNaam());
         System.out.println("Aantal kamers gehaald: " + kamersGehaald);
-        System.out.println(heeftMonster ? "Je hebt een monster te verslaan!" : "Geen monsters actief.");
+        if (heeftMonster) {
+            System.out.println("Je hebt een monster te verslaan!");
+        } else {
+            System.out.println("Geen monsters actief.");
+        }
     }
 
     public void setHeeftMonster(boolean heeftMonster) {
@@ -37,5 +36,9 @@ public class Speler {
 
     public boolean heeftMonster() {
         return heeftMonster;
+    }
+
+    public String getNaam() {
+        return naam;
     }
 }

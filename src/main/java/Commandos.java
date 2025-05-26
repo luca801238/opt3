@@ -6,4 +6,8 @@ public class Commandos {
     public static int haalopKamernummer(String input) {
         return Integer.parseInt(input.replaceAll("\\D+", ""));
     }
+    public static boolean bevatGetal(String input) {
+        return input.matches(".*\\d.*");
+    }
+
 }

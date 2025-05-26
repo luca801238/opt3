@@ -30,16 +30,18 @@ public class SpelController {
 
     public void verwerkCommando(String input) {
         if (Commandos.isGaNaarKamer(input)) {
-            while (!input.matches(".*\\d.*")) {
-                System.out.println("Type naar welke kamer je wilt gaan.");
+            while (!Commandos.bevatGetal(input)) {
+                System.out.println("Ongeldige invoer. Type een geldig kamernummer, bijvoorbeeld 'Ga naar kamer 3'.");
                 input = scanner.nextLine();
             }
 
             int gevraagdNummer = Commandos.haalopKamernummer(input);
             verwerkKamerNavigatie(gevraagdNummer);
-        } else if (input.equalsIgnoreCase("status")) {
+        }
+        else if (input.equalsIgnoreCase("status")) {
             speler.status();
-        } else {
+        }
+        else {
             verwerkOpdracht(input);
         }
     }

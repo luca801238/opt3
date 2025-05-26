@@ -29,13 +29,13 @@ public class SpelController {
     }
 
     public void verwerkCommando(String input) {
-        if (CommandoParser.isGaNaarKamer(input)) {
+        if (Commandos.isGaNaarKamer(input)) {
             while (!input.matches(".*\\d.*")) {
                 System.out.println("Type naar welke kamer je wilt gaan.");
                 input = scanner.nextLine();
             }
 
-            int gevraagdNummer = CommandoParser.haalopKamernummer(input);
+            int gevraagdNummer = Commandos.haalopKamernummer(input);
             verwerkKamerNavigatie(gevraagdNummer);
         } else if (input.equalsIgnoreCase("status")) {
             speler.status();
@@ -114,4 +114,40 @@ public class SpelController {
             }
         }
     }
+    private void eindPrompt() {
+
+        System.out.println("Je hebt alle kamers doorlopen en het spel uitgespeeld! Goed gedaan!");
+        System.out.println("Wil je opnieuw spelen? Zeg ja/nee:");
+
+        while (true) {
+
+            String keuze = scanner.nextLine();
+
+            if (keuze.equalsIgnoreCase("ja")) {
+                System.out.println("Al je voortgang wordt nu gereset, je kan het spel opnieuw spelen! \n");
+
+                huidigeKamerIndex = 0;
+                speler.setHuidigeKamer(kamers.get(huidigeKamerIndex));
+                speler.setHeeftMonster(false);
+                voltooideKamers.clear();
+
+                SpelerDAO.slaOp(speler.getNaam(), 0);
+
+                speler.getHuidigeKamer().startOpdracht();
+                opdrachtGestart = true;
+                break;
+            }
+
+            if (keuze.equalsIgnoreCase("nee")) {
+                System.out.println("Bedankt voor het spelen!");
+                System.exit(0);
+            }
+
+            System.out.println("Ongeldige invoer. Typ 'ja' of 'nee'.");
+        }
+    }
+
+
+
+
 }

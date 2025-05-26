@@ -1,4 +1,4 @@
-public class CommandoParser {
+public class Commandos {
     public static boolean isGaNaarKamer(String input) {
         return input.startsWith("ga naar kamer");
     }

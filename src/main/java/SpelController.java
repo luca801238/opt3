@@ -1,5 +1,5 @@
 import Kamers.*;
-
+import Hints.*;
 import java.util.*;
 import java.util.Scanner;
 
@@ -115,6 +115,7 @@ public class SpelController {
             } else {
                 speler.setHeeftMonster(true);
                 speler.getHuidigeKamer().getMonster().toonMonster();
+                vraagEnToonHint();
             }
         }
     }
@@ -150,6 +151,19 @@ public class SpelController {
             System.out.println("Ongeldige invoer. Typ 'ja' of 'nee'.");
         }
     }
+
+    private void vraagEnToonHint() {
+        System.out.println("Wil je een hint? (ja/nee)");
+        String keuze = scanner.nextLine().trim().toLowerCase();
+
+        if (keuze.equals("ja")) {
+            HintProvider provider = HintFactory.createHintProvider();
+            System.out.println("Hint: " + provider.getHint());
+        } else {
+            System.out.println("Oké, geen hint. Probeer het opnieuw!");
+        }
+    }
+
 
 
 

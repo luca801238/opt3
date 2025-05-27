@@ -1,6 +1,6 @@
 package Hints;
 
-public class FunnyHintService implements HintProvider {
+public class FunnyHintProvider implements HintProvider {
     @Override
     public String getHint(){
         return "def";

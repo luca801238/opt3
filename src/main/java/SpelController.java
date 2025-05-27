@@ -91,6 +91,7 @@ public class SpelController {
                 SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
             } else {
                 System.out.println("Nog steeds fout. Probeer opnieuw.");
+                vraagEnToonHint();
             }
             return;
         }

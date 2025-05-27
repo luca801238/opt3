@@ -1,3 +1,5 @@
+package Kamers;
+
 public class KamerBoard extends Kamer {
     private Monster monster = new Monster("Chaos");
 

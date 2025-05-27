@@ -1,3 +1,5 @@
+package Kamers;
+
 public class KamerReview extends Kamer {
     private Monster monster = new Monster("Miscommunicatie");
 

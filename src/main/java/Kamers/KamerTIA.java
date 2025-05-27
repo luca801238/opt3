@@ -1,9 +1,11 @@
+package Kamers;
+
 public class KamerTIA extends Kamer {
     private Monster monster = new Monster("Onbegrip");
 
     @Override
     public void startOpdracht() {
-        System.out.println("Final Kamer – Waarom Scrum?");
+        System.out.println("Final Kamers.Kamer – Waarom Scrum?");
         System.out.println("Wat is het belangrijkste doel van Scrum?");
         System.out.println("A: Zoveel mogelijk meetings houden");
         System.out.println("B: Transparantie, inspectie en aanpassing voor betere samenwerking");
@@ -17,7 +19,7 @@ public class KamerTIA extends Kamer {
 
     @Override
     public String getNaam() {
-        return "Final TIA Kamer";
+        return "Final TIA Kamers.Kamer";
     }
 
     @Override

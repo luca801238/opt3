@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package Kamers;
 
 public class KamerPlanning extends Kamer {
     private Monster monster = new Monster("Scope Creep");

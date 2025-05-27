@@ -1,3 +1,5 @@
+package Kamers;
+
 public class KamerRetrospective extends Kamer {
     private Monster monster = new Monster("Herhaalde fouten");
 

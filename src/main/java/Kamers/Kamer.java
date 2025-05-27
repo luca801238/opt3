@@ -1,3 +1,5 @@
+package Kamers;
+
 public abstract class Kamer {
 
     public final void doorloopKamer() {

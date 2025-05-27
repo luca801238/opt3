@@ -1,3 +1,5 @@
+package Kamers;
+
 public class KamerScrum extends Kamer {
     private Monster monster = new Monster("Vertraging");
 

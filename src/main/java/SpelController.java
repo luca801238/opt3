@@ -1,3 +1,5 @@
+import Kamers.*;
+
 import java.util.*;
 import java.util.Scanner;
 
@@ -80,7 +82,7 @@ public class SpelController {
 
         if (speler.heeftMonster()) {
             if (speler.getHuidigeKamer().checkAntwoord(input)) {
-                System.out.println("Goed beantwoord! Monster verslagen.");
+                System.out.println("Goed beantwoord! Kamers.Monster verslagen.");
                 speler.setHeeftMonster(false);
                 speler.voegGehaaldeKamerToe();
                 voltooideKamers.add(huidigeKamerIndex);

@@ -1,3 +1,5 @@
+import Kamers.Kamer;
+
 public class Speler {
     private Kamer huidigeKamer;
     private int kamersGehaald = 0;

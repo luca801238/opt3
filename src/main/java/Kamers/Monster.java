@@ -1,3 +1,5 @@
+package Kamers;
+
 public class Monster {
     private String naam;
     private Actie actie;
@@ -9,7 +11,7 @@ public class Monster {
     private static class StandaardActie implements Actie {
         @Override
         public void voerUit(String naam) {
-            System.out.println("Monster verschenen: " + naam);
+            System.out.println("Kamers.Monster verschenen: " + naam);
             System.out.println("Los eerst de opdracht correct op om door te mogen!");
         }
     }

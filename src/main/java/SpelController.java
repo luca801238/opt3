@@ -164,14 +164,10 @@ public class SpelController {
 
         if (keuze.equals("ja")) {
             HintProvider provider = HintFactory.createHintProvider();
-            System.out.println("Hint: " + provider.getHint());
+            Kamer kamer = speler.getHuidigeKamer();
+            System.out.println("Hint: " + provider.getHint(kamer));
         } else {
             System.out.println("Oké, geen hint. Probeer het opnieuw!");
         }
     }
-
-
-
-
-
 }

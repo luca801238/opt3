@@ -23,7 +23,7 @@ public class KamerTIA extends Kamer {
 
     @Override
     public String getNaam() {
-        return "Final TIA Kamers.Kamer";
+        return "TIA";
     }
 
     @Override

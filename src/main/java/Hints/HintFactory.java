@@ -4,8 +4,7 @@ package Hints;
 // systeem kiest willekeurig tussen funny hint en help hint
 public class HintFactory {
     public static HintProvider createHintProvider() {
-        double number = Math.random();
-        if (number > 0.5) {
+        if (Math.random() > 0.5) {
             return new HelpHintProvider();
         } else {
             return new FunnyHintProvider();

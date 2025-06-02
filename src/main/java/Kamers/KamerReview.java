@@ -1,7 +1,11 @@
 package Kamers;
+// user story 9: elke kamer is subklasse
 
 public class KamerReview extends Kamer {
     private Monster monster = new Monster("Miscommunicatie");
+
+    // user story 3: korte opdracht
+    // user story 16: alle kamers hebben zelfde functie.
 
     @Override
     public void startOpdracht() {

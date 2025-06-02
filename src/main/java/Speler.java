@@ -30,6 +30,8 @@ public class Speler {
         kamersGehaald++;
     }
 
+    // user story 4: status commando voortgang
+    // user story 7: positie en status (samengevoegd)
     public void status() {
         System.out.println("Je bent nu in: " + huidigeKamer.getNaam());
         System.out.println("Aantal kamers gehaald: " + kamersGehaald);

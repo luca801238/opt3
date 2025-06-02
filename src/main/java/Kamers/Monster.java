@@ -1,5 +1,6 @@
 package Kamers;
 
+// user story 10: monster klasse
 public class Monster {
     private String naam;
     private Actie actie;

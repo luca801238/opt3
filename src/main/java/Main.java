@@ -1,3 +1,5 @@
+// user story 1: spel starten
+
 public class Main {
     public static void main(String[] args) {
 

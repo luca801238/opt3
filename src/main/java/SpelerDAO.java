@@ -1,5 +1,5 @@
 import java.sql.*;
-
+// user story 5: database
 public class SpelerDAO {
 
     public static void slaOp(String naam, int kamerIndex) {

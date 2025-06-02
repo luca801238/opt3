@@ -30,6 +30,7 @@ public class SpelController {
         speler.setHuidigeKamer(kamers.get(huidigeKamerIndex));
     }
 
+    // verwerkt de commandos, user story (?)
     public void verwerkCommando(String input) {
         if (Commandos.isGaNaarKamer(input)) {
             while (!Commandos.bevatGetal(input)) {
@@ -48,6 +49,7 @@ public class SpelController {
         }
     }
 
+    // user story 2: kamers wisselen
     private void verwerkKamerNavigatie(int gevraagdNummer) {
         if (!speler.heeftMonster() && voltooideKamers.contains(huidigeKamerIndex)
                 && gevraagdNummer == huidigeKamerIndex + 2
@@ -74,6 +76,7 @@ public class SpelController {
         }
     }
 
+    // user story 2: kamers wisselen
     private void verwerkOpdracht(String input) {
         if (voltooideKamers.contains(huidigeKamerIndex)) {
             System.out.println("Je hebt deze kamer al afgerond. Typ 'ga naar kamer " + (huidigeKamerIndex + 2) + "' om verder te gaan.");
@@ -120,6 +123,7 @@ public class SpelController {
             }
         }
     }
+    // user story 2: kamers wisselen
     private void eindPrompt() {
 
         System.out.println("Je hebt alle kamers doorlopen en het spel uitgespeeld! Goed gedaan!");
@@ -153,6 +157,7 @@ public class SpelController {
         }
     }
 
+    // user story 20 - hint
     private void vraagEnToonHint() {
         System.out.println("Wil je een hint? (ja/nee)");
         String keuze = scanner.nextLine().trim().toLowerCase();

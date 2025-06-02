@@ -1,5 +1,6 @@
 package Kamers;
 
+// user story 8: abstracte kamer klasse
 public abstract class Kamer {
 
     public final void doorloopKamer() {

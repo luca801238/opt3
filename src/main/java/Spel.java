@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// user story 6: spel klasse
 public class Spel {
     private final SpelController controller;
     private Scanner scanner;

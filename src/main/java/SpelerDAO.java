@@ -29,19 +29,4 @@ public class SpelerDAO {
         }
         return 0;
     }
-
-    public static int laadKamersGehaald(String naam) {
-        try (Connection conn = Database.getConnection()) {
-            String sql = "SELECT kamers_gehaald FROM speler WHERE naam = ?";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, naam);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return rs.getInt("kamers_gehaald");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
 }

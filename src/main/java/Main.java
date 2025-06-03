@@ -5,6 +5,7 @@ public class Main {
 
         System.out.println("Welkom bij Scrum Escape – De Kameruitdaging!");
         System.out.println("Typ 'status' of geef antwoorden op de opdrachten.");
+        System.out.println("Gebruik bijvoorbeeld: 'gebruik zwaard' of 'gebruik kamerinfo'");
         System.out.println("------------------------------------------------");
 
         Spel spel = new Spel();

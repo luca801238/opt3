@@ -28,6 +28,8 @@ public class SpelController {
         );
 
         speler.setHuidigeKamer(kamers.get(huidigeKamerIndex));
+        speler.voegVoorwerpToe(new Kamerinfo());
+        speler.voegVoorwerpToe(new Zwaard());
     }
 
     public void kiesStartJoker() {
@@ -65,6 +67,19 @@ public class SpelController {
         }
         else if (input.equalsIgnoreCase("status")) {
             speler.status();
+        }
+        else if (input.toLowerCase().startsWith("gebruik")) {
+            String naam = input.substring(7).trim().toLowerCase();
+
+            Optional<Voorwerp> gevonden = speler.getInventaris().stream()
+                    .filter(v -> v.getClass().getSimpleName().equalsIgnoreCase(naam))
+                    .findFirst();
+
+            if (gevonden.isPresent()) {
+                gevonden.get().gebruik(speler);
+            } else {
+                System.out.println("Je hebt dit voorwerp niet.");
+            }
         }
         else {
             verwerkOpdracht(input);
@@ -107,7 +122,7 @@ public class SpelController {
 
         if (speler.heeftMonster()) {
             if (speler.getHuidigeKamer().checkAntwoord(input)) {
-                System.out.println("Goed beantwoord! Kamers.Monster verslagen.");
+                System.out.println("Goed beantwoord! Monster verslagen.");
                 speler.setHeeftMonster(false);
                 speler.voegGehaaldeKamerToe();
                 voltooideKamers.add(huidigeKamerIndex);
@@ -135,8 +150,7 @@ public class SpelController {
                 SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
 
                 if (huidigeKamerIndex == kamers.size() - 1) {
-                    System.out.println("Je hebt alle kamers doorlopen en het spel uitgespeeld! Goed gedaan!");
-                    System.exit(0);
+                    eindPrompt();
                 }
             } else {
                 speler.setHeeftMonster(true);

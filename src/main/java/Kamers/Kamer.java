@@ -3,6 +3,10 @@ package Kamers;
 // user story 8: abstracte kamer klasse
 public abstract class Kamer {
 
+    public boolean accepteertKeyJoker() {
+        return false;
+    }
+
     public final void doorloopKamer() {
         startOpdracht();
         //Voor in de toekomst

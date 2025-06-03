@@ -4,6 +4,11 @@ package Kamers;
 public class KamerScrum extends Kamer {
     private Monster monster = new Monster("Vertraging");
 
+    @Override
+    public boolean accepteertKeyJoker() {
+        return true;
+    }
+
     // user story 3: korte opdracht
     // user story 16: alle kamers hebben zelfde functie.
 

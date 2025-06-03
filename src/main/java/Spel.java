@@ -12,6 +12,7 @@ public class Spel {
     }
     public void start() {
         System.out.println("Welkom bij Scrum Escape!");
+        controller.kiesStartJoker();
         while (true) {
             System.out.print("> ");
             String input = scanner.nextLine();

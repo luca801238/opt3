@@ -30,6 +30,28 @@ public class SpelController {
         speler.setHuidigeKamer(kamers.get(huidigeKamerIndex));
     }
 
+    public void kiesStartJoker() {
+        System.out.println("Kies een joker om mee te beginnen:");
+        System.out.println("1. Hint Joker (voor hulp bij opdrachten)");
+        System.out.println("2. Key Joker (voor een sleutel in bepaalde kamers)");
+        String keuze = scanner.nextLine().trim();
+
+        switch (keuze) {
+            case "1":
+                speler.addHintJoker();
+                System.out.println("Je hebt een Hint Joker gekregen.");
+                break;
+            case "2":
+                speler.addKeyJoker();
+                System.out.println("Je hebt een Key Joker gekregen.");
+                break;
+            default:
+                System.out.println("Ongeldige keuze. Probeer opnieuw.");
+                kiesStartJoker();
+                break;
+        }
+    }
+
     // verwerkt de commandos, user story (?)
     public void verwerkCommando(String input) {
         if (Commandos.isGaNaarKamer(input)) {
@@ -159,15 +181,30 @@ public class SpelController {
 
     // user story 20 - hint
     private void vraagEnToonHint() {
-        System.out.println("Wil je een hint? (ja/nee)");
-        String keuze = scanner.nextLine().trim().toLowerCase();
+        if (speler.getHintJokers() > 0) {
+            System.out.println("Wil je een hint gebruiken? (ja/nee)");
+            String keuze = scanner.nextLine().trim().toLowerCase();
 
-        if (keuze.equals("ja")) {
-            HintProvider provider = HintFactory.createHintProvider();
-            Kamer kamer = speler.getHuidigeKamer();
-            System.out.println("Hint: " + provider.getHint(kamer));
-        } else {
-            System.out.println("Oké, geen hint. Probeer het opnieuw!");
+            if (keuze.equals("ja")) {
+                Joker hintJoker = new HintJoker();
+                hintJoker.useJoker(speler);
+            } else {
+                System.out.println("Oké, geen hint. Probeer het opnieuw!");
+            }
+        }
+    }
+
+    private void vraagGebruikKeyJoker() {
+        if (speler.getKeyJokers() > 0 && speler.getHuidigeKamer().accepteertKeyJoker()) {
+            System.out.println("Wil je een Key Joker gebruiken om een sleutel te krijgen? (ja/nee)");
+            String keuze = scanner.nextLine().trim().toLowerCase();
+
+            if (keuze.equals("ja")) {
+                Joker keyJoker = new KeyJoker();
+                keyJoker.useJoker(speler);
+            } else {
+                System.out.println("Geen Key Joker gebruikt.");
+            }
         }
     }
 }

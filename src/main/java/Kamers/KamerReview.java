@@ -4,6 +4,11 @@ package Kamers;
 public class KamerReview extends Kamer {
     private Monster monster = new Monster("Miscommunicatie");
 
+    @Override
+    public boolean accepteertKeyJoker() {
+        return true;
+    }
+
     // user story 3: korte opdracht
     // user story 16: alle kamers hebben zelfde functie.
 

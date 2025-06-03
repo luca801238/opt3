@@ -16,4 +16,7 @@ public class Spel {
         while (true) {
             System.out.print("> ");
             String input = scanner.nextLine();
-            controller.verw
+            controller.verwerkCommando(input);
+        }
+    }
+}

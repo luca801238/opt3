@@ -102,6 +102,7 @@ public class SpelController {
             speler.setHuidigeKamer(kamers.get(huidigeKamerIndex));
             opdrachtGestart = false;
             System.out.println("Je bent nu in kamer " + (huidigeKamerIndex + 1) + ": " + speler.getHuidigeKamer().getNaam());
+            vraagGebruikKeyJoker();
             speler.getHuidigeKamer().startOpdracht();
             opdrachtGestart = true;
 

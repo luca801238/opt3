@@ -224,4 +224,21 @@ public class SpelController {
             if (keuze.equals("ja")) {
                 Joker keyJoker = new KeyJoker();
                 keyJoker.useJoker(speler);
-     
+            } else {
+                System.out.println("Geen Key Joker gebruikt.");
+            }
+        }
+    }
+
+    // user story 24
+    private void gebruikAssistent() {
+        Kamer kamer = speler.getHuidigeKamer();
+
+        if (kamer.heeftAssistent()) {
+            Assistent assistent = new Assistent();
+            assistent.gebruik(speler);
+        } else {
+            System.out.println("Geen assistent beschikbaar voor deze kamer.");
+        }
+    }
+}

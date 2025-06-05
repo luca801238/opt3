@@ -133,7 +133,12 @@ public class SpelController {
                 opdrachtGestart = false;
 
                 SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
-            } else {
+
+                if (huidigeKamerIndex == kamers.size() - 1) {
+                    eindPrompt();
+                }
+            }
+            else {
                 System.out.println("Nog steeds fout. Probeer opnieuw.");
                 vraagHint();
             }

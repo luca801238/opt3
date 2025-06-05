@@ -4,6 +4,21 @@ package Kamers;
 public class KamerBoard extends Kamer {
     private Monster monster = new Monster("Chaos");
 
+    @Override
+    public boolean heeftAssistent() {
+        return true;
+    }
+
+    @Override
+    public String getInstructie() {
+        return "instructie, scrum board";
+    }
+
+    @Override
+    public String getMotivatie() {
+        return "motivatie, scrum board";
+    }
+
     // user story 3: korte opdracht
     // user story 16: alle kamers hebben zelfde functie.
     @Override

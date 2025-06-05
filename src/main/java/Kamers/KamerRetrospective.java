@@ -4,6 +4,21 @@ package Kamers;
 public class KamerRetrospective extends Kamer {
     private Monster monster = new Monster("Herhaalde fouten");
 
+    @Override
+    public boolean heeftAssistent() {
+        return true;
+    }
+
+    @Override
+    public String getInstructie() {
+        return "instructie, sprint retrospective";
+    }
+
+    @Override
+    public String getMotivatie() {
+        return "motivatie, sprint retrospective";
+    }
+
     // user story 3: korte opdracht
     // user story 16: alle kamers hebben zelfde functie.
 

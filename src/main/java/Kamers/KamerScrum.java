@@ -3,6 +3,8 @@ package Kamers;
 
 public class KamerScrum extends Kamer {
     private Monster monster = new Monster("Vertraging");
+    private final String assistentInstructie = "Gebruik de 'Start, Stop, Continue'-techniek.";
+    private final String assistentMotivatie = "Je groeit als een echte teamspeler!";
 
     @Override
     public boolean accepteertKeyJoker() {

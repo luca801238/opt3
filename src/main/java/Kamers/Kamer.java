@@ -7,6 +7,18 @@ public abstract class Kamer {
         return false;
     }
 
+    public boolean heeftAssistent() {
+        return false;
+    }
+
+    public String getInstructie() {
+        return "";
+    }
+
+    public String getMotivatie() {
+        return "";
+    }
+
     public final void doorloopKamer() {
         startOpdracht();
         //Voor in de toekomst

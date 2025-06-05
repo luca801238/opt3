@@ -4,6 +4,21 @@ package Kamers;
 public class KamerPlanning extends Kamer {
     private Monster monster = new Monster("Scope Creep");
 
+    @Override
+    public boolean heeftAssistent() {
+        return true;
+    }
+
+    @Override
+    public String getInstructie() {
+        return "instructie, sprint planning";
+    }
+
+    @Override
+    public String getMotivatie() {
+        return "motivatie, sprint planning";
+    }
+
     // user story 3: korte opdracht
     // user story 16: alle kamers hebben zelfde functie.
 

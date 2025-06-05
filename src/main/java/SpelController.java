@@ -1,5 +1,5 @@
 import Kamers.*;
-import Hints.*;
+
 import java.util.*;
 import java.util.Scanner;
 
@@ -54,7 +54,7 @@ public class SpelController {
         }
     }
 
-    // verwerkt de commandos, user story (?)
+    // verwerkt de commandos, user story 4
     public void verwerkCommando(String input) {
         if (Commandos.isGaNaarKamer(input)) {
             while (!Commandos.bevatGetal(input)) {
@@ -67,6 +67,9 @@ public class SpelController {
         }
         else if (input.equalsIgnoreCase("status")) {
             speler.status();
+        }
+        else if (input.equalsIgnoreCase("assistent")) {
+            gebruikAssistent();
         }
         else if (input.toLowerCase().startsWith("gebruik")) {
             String naam = input.substring(7).trim().toLowerCase();
@@ -132,7 +135,7 @@ public class SpelController {
                 SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
             } else {
                 System.out.println("Nog steeds fout. Probeer opnieuw.");
-                vraagEnToonHint();
+                vraagHint();
             }
             return;
         }
@@ -156,7 +159,7 @@ public class SpelController {
             } else {
                 speler.setHeeftMonster(true);
                 speler.getHuidigeKamer().getMonster().toonMonster();
-                vraagEnToonHint();
+                vraagHint();
             }
         }
     }
@@ -195,18 +198,22 @@ public class SpelController {
     }
 
     // user story 20 - hint
-    private void vraagEnToonHint() {
+    private void vraagHint() {
         if (speler.getHintJokers() > 0) {
             System.out.println("Wil je een hint gebruiken? (ja/nee)");
             String keuze = scanner.nextLine().trim().toLowerCase();
 
             if (keuze.equals("ja")) {
-                Joker hintJoker = new HintJoker();
-                hintJoker.useJoker(speler);
+                toonHint();
             } else {
                 System.out.println("Oké, geen hint. Probeer het opnieuw!");
             }
         }
+    }
+
+    public void toonHint() {
+        Joker hintJoker = new HintJoker();
+        hintJoker.useJoker(speler);
     }
 
     private void vraagGebruikKeyJoker() {
@@ -217,9 +224,4 @@ public class SpelController {
             if (keuze.equals("ja")) {
                 Joker keyJoker = new KeyJoker();
                 keyJoker.useJoker(speler);
-            } else {
-                System.out.println("Geen Key Joker gebruikt.");
-            }
-        }
-    }
-}
+     

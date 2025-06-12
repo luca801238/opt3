@@ -1,7 +1,5 @@
 package test;
 import Kamers.Monster;
-import org.junit.jupiter.api.Test;
-
 public class Stub {
 
     // stub van monster/actie: user story 26
@@ -18,8 +16,7 @@ public class Stub {
 
 
     // stub test: user story 26
-    @Test
-    void stubTest() {
+    public static void main(String[] args) {
         ActieStub stub = new ActieStub();
         Monster monster = new Monster("Justin", stub);
         

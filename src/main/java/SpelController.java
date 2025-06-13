@@ -42,10 +42,12 @@ public class SpelController {
             case "1":
                 speler.addHintJoker();
                 System.out.println("Je hebt een Hint Joker gekregen.");
+                System.out.println("Typ 'ga door' om door te gaan.");
                 break;
             case "2":
                 speler.addKeyJoker();
                 System.out.println("Je hebt een Key Joker gekregen.");
+                System.out.println("Typ 'ga door' om door te gaan.");
                 break;
             default:
                 System.out.println("Ongeldige keuze. Probeer opnieuw.");
@@ -151,6 +153,7 @@ public class SpelController {
         } else {
             if (speler.getHuidigeKamer().checkAntwoord(input)) {
                 System.out.println("Goed gedaan! Je mag door naar de volgende kamer.");
+                System.out.println("Typ 'ga naar kamer " + (huidigeKamerIndex + 2) + "'.");
                 speler.setHeeftMonster(false);
                 speler.voegGehaaldeKamerToe();
                 voltooideKamers.add(huidigeKamerIndex);

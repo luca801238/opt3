@@ -1,4 +1,5 @@
 import Kamers.*;
+import Observers.AntwoordController;
 
 import java.util.*;
 import java.util.Scanner;
@@ -10,6 +11,8 @@ public class SpelController {
     private boolean opdrachtGestart = false;
     private final Set<Integer> voltooideKamers = new HashSet<>();
     private final Scanner scanner = new Scanner(System.in);
+    private final AntwoordController antwoordController = new AntwoordController();
+
 
     public SpelController() {
         System.out.print("Voer je naam in: ");
@@ -17,6 +20,8 @@ public class SpelController {
 
         huidigeKamerIndex = SpelerDAO.laadHuidigeKamer(naam);
         speler = new Speler(naam);
+
+
 
         kamers = List.of(
                 new KamerPlanning(),
@@ -26,6 +31,8 @@ public class SpelController {
                 new KamerRetrospective(),
                 new KamerTIA()
         );
+
+
 
         speler.setHuidigeKamer(kamers.get(huidigeKamerIndex));
         speler.voegVoorwerpToe(new Kamerinfo());
@@ -121,6 +128,8 @@ public class SpelController {
 
     // user story 2: kamers wisselen
     private void verwerkOpdracht(String input) {
+
+
         if (voltooideKamers.contains(huidigeKamerIndex)) {
             System.out.println("Je hebt deze kamer al afgerond. Typ 'ga naar kamer " + (huidigeKamerIndex + 2) + "' om verder te gaan.");
             return;
@@ -128,7 +137,7 @@ public class SpelController {
 
         if (speler.heeftMonster()) {
             if (speler.getHuidigeKamer().checkAntwoord(input)) {
-                System.out.println("Goed beantwoord! Monster verslagen.");
+                speler.getHuidigeKamer().getMonster().verbergMonster();
                 speler.setHeeftMonster(false);
                 speler.voegGehaaldeKamerToe();
                 voltooideKamers.add(huidigeKamerIndex);

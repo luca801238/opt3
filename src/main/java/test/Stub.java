@@ -6,10 +6,17 @@ public class Stub {
     static class ActieStub implements Monster.Actie {
         boolean isUitgevoerd = false;
         String ontvangenNaam = null;
+        boolean isVerborgen = false;
 
         @Override
         public void voerUit(String naam) {
             isUitgevoerd = true;
+            ontvangenNaam = naam;
+        }
+
+        @Override
+        public void verberg(String naam) {
+            isVerborgen = true;
             ontvangenNaam = naam;
         }
     }
@@ -26,6 +33,14 @@ public class Stub {
             System.out.println("Test geslaagd: actie is uitgevoerd met juiste naam");
         } else {
             System.out.println("Test gefaald: actie is niet uitgevoerd met juiste naam");
+        }
+
+        monster.verbergMonster();
+
+        if (stub.isVerborgen && "Justin".equals(stub.ontvangenNaam)) {
+            System.out.println("Test geslaagd: verbergMonster actie is uitgevoerd met juiste naam");
+        } else {
+            System.out.println("Test gefaald: verbergMonster actie is niet uitgevoerd met juiste naam");
         }
     }
 }

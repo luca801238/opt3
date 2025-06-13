@@ -7,12 +7,21 @@ public class Mock {
         boolean isUitgevoerd = false;
         String ontvangenNaam = null;
         int aantalKeerUitgevoerd = 0;
+        boolean isVerborgen = false;
+        int aantalKeerVerborgen = 0;
 
         @Override
         public void voerUit(String naam) {
             isUitgevoerd = true;
             ontvangenNaam = naam;
             aantalKeerUitgevoerd++;
+        }
+
+        @Override
+        public void verberg(String naam) {
+            isVerborgen = true;
+            ontvangenNaam = naam;
+            aantalKeerVerborgen++;
         }
     }
 
@@ -30,6 +39,16 @@ public class Mock {
             System.out.println("✅ Test geslaagd: methode is 1x aangeroepen met juiste naam");
         } else {
             System.out.println("❌ Test gefaald");
+        }
+
+        monster.verbergMonster();
+
+        if (mock.isVerborgen &&
+                "Draak".equals(mock.ontvangenNaam) &&
+                mock.aantalKeerVerborgen == 1) {
+            System.out.println("✅ Test geslaagd: verbergMonster methode is 1x aangeroepen met juiste naam");
+        } else {
+            System.out.println("❌ Test gefaald voor verbergMonster");
         }
     }
 }

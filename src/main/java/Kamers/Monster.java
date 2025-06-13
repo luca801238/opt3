@@ -7,6 +7,7 @@ public class Monster {
 
     public interface Actie {
         void voerUit(String naam);
+        void verberg(String naam);
     }
 
     private static class StandaardActie implements Actie {
@@ -14,6 +15,11 @@ public class Monster {
         public void voerUit(String naam) {
             System.out.println("Monster verschenen: " + naam);
             System.out.println("Los eerst de opdracht correct op om door te mogen!");
+        }
+
+        @Override
+        public void verberg(String naam) {
+            System.out.println("Monster " + naam + " is verslagen en verdwenen!");
         }
     }
 
@@ -29,5 +35,9 @@ public class Monster {
 
     public void toonMonster() {
         actie.voerUit(naam);
+    }
+
+    public void verbergMonster() {
+        actie.verberg(naam);
     }
 }

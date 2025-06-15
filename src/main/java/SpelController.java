@@ -115,8 +115,7 @@ public class SpelController {
             opdrachtGestart = false;
             System.out.println("Je bent nu in kamer " + (huidigeKamerIndex + 1) + ": " + speler.getHuidigeKamer().getNaam());
             vraagGebruikKeyJoker();
-            speler.getHuidigeKamer().startOpdracht();
-            opdrachtGestart = true;
+            startOpdracht();
 
             SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
         } else if (!voltooideKamers.contains(huidigeKamerIndex)) {
@@ -152,8 +151,7 @@ public class SpelController {
         }
 
         if (!opdrachtGestart) {
-            speler.getHuidigeKamer().startOpdracht();
-            opdrachtGestart = true;
+            startOpdracht();
         } else {
             if (speler.getHuidigeKamer().checkAntwoord(input)) {
                 verwerkCorrectAntwoord();
@@ -184,8 +182,7 @@ public class SpelController {
 
                 SpelerDAO.slaOp(speler.getNaam(), 0);
 
-                speler.getHuidigeKamer().startOpdracht();
-                opdrachtGestart = true;
+                startOpdracht();
                 break;
             }
 
@@ -243,21 +240,15 @@ public class SpelController {
         }
     }
 
-
-
     // SHOTGUN SURGERY VOORKOMEN!!!
-    private void markeerKamerAlsVoltooid() {
+    private void verwerkCorrectAntwoord() {
+        speler.setHeeftMonster(false);
+
+
         speler.voegGehaaldeKamerToe();
         voltooideKamers.add(huidigeKamerIndex);
         opdrachtGestart = false;
         SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
-    }
-
-
-    // SHOTGUN SURGERY VOORKOMEN!!!
-    private void verwerkCorrectAntwoord() {
-        speler.setHeeftMonster(false);
-        markeerKamerAlsVoltooid();
 
         if (huidigeKamerIndex == kamers.size() - 1) {
             eindPrompt();
@@ -266,5 +257,13 @@ public class SpelController {
             System.out.println("Typ 'ga naar kamer " + (huidigeKamerIndex + 2) + "'.");
         }
     }
+
+
+    // SHOTGUN SURGERY VOORKOMEN!
+    private void startOpdracht() {
+        speler.getHuidigeKamer().startOpdracht();
+        opdrachtGestart = true;
+    }
+
 
 }

@@ -139,11 +139,8 @@ public class SpelController {
             if (speler.getHuidigeKamer().checkAntwoord(input)) {
                 speler.getHuidigeKamer().getMonster().verbergMonster();
                 speler.setHeeftMonster(false);
-                speler.voegGehaaldeKamerToe();
-                voltooideKamers.add(huidigeKamerIndex);
-                opdrachtGestart = false;
 
-                SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
+                markeerKamerAlsVoltooid();
 
                 if (huidigeKamerIndex == kamers.size() - 1) {
                     eindPrompt();
@@ -164,11 +161,7 @@ public class SpelController {
                 System.out.println("Goed gedaan! Je mag door naar de volgende kamer.");
                 System.out.println("Typ 'ga naar kamer " + (huidigeKamerIndex + 2) + "'.");
                 speler.setHeeftMonster(false);
-                speler.voegGehaaldeKamerToe();
-                voltooideKamers.add(huidigeKamerIndex);
-                opdrachtGestart = false;
-
-                SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
+                markeerKamerAlsVoltooid();
 
                 if (huidigeKamerIndex == kamers.size() - 1) {
                     eindPrompt();
@@ -257,5 +250,15 @@ public class SpelController {
         } else {
             System.out.println("Geen assistent beschikbaar voor deze kamer.");
         }
+    }
+
+
+
+    // SHOTGUN SURGERY VOORKOMEN!!!
+    private void markeerKamerAlsVoltooid() {
+        speler.voegGehaaldeKamerToe();
+        voltooideKamers.add(huidigeKamerIndex);
+        opdrachtGestart = false;
+        SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
     }
 }

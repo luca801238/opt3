@@ -138,13 +138,11 @@ public class SpelController {
         if (speler.heeftMonster()) {
             if (speler.getHuidigeKamer().checkAntwoord(input)) {
                 speler.getHuidigeKamer().getMonster().verbergMonster();
-                speler.setHeeftMonster(false);
+                verwerkCorrectAntwoord();
 
-                markeerKamerAlsVoltooid();
 
-                if (huidigeKamerIndex == kamers.size() - 1) {
-                    eindPrompt();
-                }
+
+
             }
             else {
                 System.out.println("Nog steeds fout. Probeer opnieuw.");
@@ -158,14 +156,7 @@ public class SpelController {
             opdrachtGestart = true;
         } else {
             if (speler.getHuidigeKamer().checkAntwoord(input)) {
-                System.out.println("Goed gedaan! Je mag door naar de volgende kamer.");
-                System.out.println("Typ 'ga naar kamer " + (huidigeKamerIndex + 2) + "'.");
-                speler.setHeeftMonster(false);
-                markeerKamerAlsVoltooid();
-
-                if (huidigeKamerIndex == kamers.size() - 1) {
-                    eindPrompt();
-                }
+                verwerkCorrectAntwoord();
             } else {
                 speler.setHeeftMonster(true);
                 speler.getHuidigeKamer().getMonster().toonMonster();
@@ -261,4 +252,19 @@ public class SpelController {
         opdrachtGestart = false;
         SpelerDAO.slaOp(speler.getNaam(), huidigeKamerIndex);
     }
+
+
+    // SHOTGUN SURGERY VOORKOMEN!!!
+    private void verwerkCorrectAntwoord() {
+        speler.setHeeftMonster(false);
+        markeerKamerAlsVoltooid();
+
+        if (huidigeKamerIndex == kamers.size() - 1) {
+            eindPrompt();
+        } else {
+            System.out.println("Goed gedaan! Je mag door naar de volgende kamer.");
+            System.out.println("Typ 'ga naar kamer " + (huidigeKamerIndex + 2) + "'.");
+        }
+    }
+
 }

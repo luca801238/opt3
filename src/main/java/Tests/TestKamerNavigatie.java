@@ -1,4 +1,4 @@
-package test;
+package Tests;
 
 public class TestKamerNavigatie {
 

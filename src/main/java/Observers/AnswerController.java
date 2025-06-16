@@ -15,7 +15,7 @@ public class AnswerController {
     }
 
     public void verwerkAntwoord(boolean juist) {
-        System.out.println("Speler gaf antwoord: " + (juist ? "GOED" : "FOUT"));
+        System.out.println("Speler gaf antwoord: " + (juist ? "goed" : "fout"));
         for (spelObserver o : observers) {
             o.update(juist);
         }

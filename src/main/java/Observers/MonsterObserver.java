@@ -3,20 +3,24 @@ package Observers;
 import Rooms.Room;
 
 public class MonsterObserver implements spelObserver {
-    private final Room room;
+    private Room room;
 
     public MonsterObserver(Room room) {
         this.room = room;
     }
 
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
     @Override
-    public void update(boolean juist) {
-        if (juist) {
-            System.out.println("✅ Monster is verdwenen.");
-            room.getMonster().hideMonster();
-        } else {
-            System.out.println("❗ Er verschijnt een monster!");
-            room.getMonster().showMonster();
+    public void update(boolean correct) {
+        if (room != null && room.getMonster() != null) {
+            if (!correct) {
+                room.getMonster().showMonster();
+            } else {
+                room.getMonster().hideMonster();
+            }
         }
     }
 }

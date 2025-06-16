@@ -1,5 +1,5 @@
 import Rooms.*;
-// import Observers.*;
+import Observers.*;
 import java.util.*;
 import java.util.Scanner;
 
@@ -10,10 +10,10 @@ public class GameController {
     private boolean taskStarted = false;
     private final Set<Integer> completedRooms = new HashSet<>();
     private final Scanner scanner = new Scanner(System.in);
-    // private final AnswerController answerController = new AnswerController();
-
-
+    private final AnswerController answerController = new AnswerController();
+    private final MonsterObserver monsterObserver;
     public GameController() {
+
         System.out.print("Voer je naam in: ");
         String naam = scanner.nextLine().trim();
 
@@ -31,11 +31,17 @@ public class GameController {
                 new RoomTIA()
         );
 
-
+        monsterObserver = new MonsterObserver(null);
+        answerController.voegObserverToe(new DeurObserver());
+        answerController.voegObserverToe(new Status());
+        answerController.voegObserverToe(monsterObserver);
 
         player.setCurrentRoom(rooms.get(currentRoomIndex));
         player.addObject(new Kamerinfo());
         player.addObject(new Sword());
+
+
+
     }
 
     public void chooseStartJoker() {
@@ -92,6 +98,15 @@ public class GameController {
                 System.out.println("Je hebt dit voorwerp niet.");
             }
         }
+        else if (input.equalsIgnoreCase("ga door")) {
+            if (!taskStarted) {
+                startTask();
+            } else {
+                System.out.println("Je bent al bezig met de opdracht.");
+            }
+        }
+
+
         else {
             processTask(input);
         }
@@ -111,6 +126,8 @@ public class GameController {
             }
 
             player.setCurrentRoom(rooms.get(currentRoomIndex));
+            monsterObserver.setRoom(player.getCurrentRoom()); // ✅ Added line
+
             taskStarted = false;
             System.out.println("Je bent nu in kamer " + (currentRoomIndex + 1) + ": " + player.getCurrentRoom().getName());
             askUseKeyJoker();
@@ -126,34 +143,27 @@ public class GameController {
 
     // user story 2: kamers wisselen
     private void processTask(String input) {
-
-
         if (completedRooms.contains(currentRoomIndex)) {
             System.out.println("Je hebt deze kamer al afgerond. Typ 'ga naar kamer " + (currentRoomIndex + 2) + "' om verder te gaan.");
             return;
         }
 
-        if (player.getHasMonster()) {
-            if (player.getCurrentRoom().checkAnswer(input)) {
-                player.getCurrentRoom().getMonster().hideMonster();
-                processCorrectAnswer();
-            } else {
-                System.out.println("Nog steeds fout. Probeer opnieuw.");
-                questionHint();
-            }
+        if (!taskStarted) {
+            System.out.println("Typ 'ga door' om te beginnen met de opdracht.");
             return;
         }
 
-        if (!taskStarted) {
-            startTask();
+        boolean correct = player.getCurrentRoom().checkAnswer(input);
+        answerController.verwerkAntwoord(correct);
+
+        if (correct) {
+            processCorrectAnswer();
         } else {
-            if (player.getCurrentRoom().checkAnswer(input)) {
-                processCorrectAnswer();
-            } else {
+            if (!player.getHasMonster()) {
                 player.setHasMonster(true);
-                player.getCurrentRoom().getMonster().showMonster();
-                questionHint();
+                //player.getCurrentRoom().getMonster().showMonster();
             }
+            questionHint();
         }
     }
     // user story 2: kamers wisselen
@@ -171,6 +181,7 @@ public class GameController {
 
                 currentRoomIndex = 0;
                 player.setCurrentRoom(rooms.get(currentRoomIndex));
+                monsterObserver.setRoom(player.getCurrentRoom());
                 player.setHasMonster(false);
                 completedRooms.clear();
 

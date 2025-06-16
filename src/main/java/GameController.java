@@ -35,13 +35,20 @@ public class GameController {
         );
 
         monsterObserver = new MonsterObserver(null);
+
+
         answerController.voegObserverToe(new DeurObserver());
         answerController.voegObserverToe(new Status());
         answerController.voegObserverToe(monsterObserver);
 
         player.setCurrentRoom(rooms.get(currentRoomIndex));
+        monsterObserver.setRoom(player.getCurrentRoom());
+
         player.addObject(new Kamerinfo());
         player.addObject(new Zwaard());
+
+
+
 
 
 
@@ -128,7 +135,7 @@ public class GameController {
             }
 
             player.setCurrentRoom(rooms.get(currentRoomIndex));
-            monsterObserver.setRoom(player.getCurrentRoom()); // ✅ Added line
+            monsterObserver.setRoom(player.getCurrentRoom());
 
             taskStarted = false;
             System.out.println("Je bent nu in kamer " + (currentRoomIndex + 1) + ": " + player.getCurrentRoom().getName());
@@ -156,11 +163,12 @@ public class GameController {
         }
 
         boolean correct = player.getCurrentRoom().checkAnswer(input);
-        answerController.verwerkAntwoord(correct);
 
         if (correct) {
+            answerController.verwerkAntwoord(correct);
             processCorrectAnswer();
         } else {
+            answerController.verwerkAntwoord(correct);
             if (!player.getHasMonster()) {
                 player.setHasMonster(true);
                 //player.getCurrentRoom().getMonster().showMonster();

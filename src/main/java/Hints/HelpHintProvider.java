@@ -2,14 +2,14 @@ package Hints;
 
 // user story 20: hints
 // hint type funnyhint
-import Kamers.Kamer;
+import Rooms.Room;
 
 public class HelpHintProvider implements HintProvider {
     @Override
-    public String getHint(Kamer kamer) {
-        String naam = kamer.getNaam();
+    public String getHint(Room room) {
+        String name = room.getName();
 
-        switch (naam) {
+        switch (name) {
             case "Sprint Planning":
                 return "Denk aan het verdelen van werk in kleine stukken.";
             case "Scrum Board":

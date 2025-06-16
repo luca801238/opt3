@@ -1,7 +1,7 @@
 package Hints;
 
-import Kamers.Kamer;
+import Rooms.Room;
 // user story 20: hints
 public interface HintProvider {
-    String getHint(Kamer kamer);
+    String getHint(Room room);
 }

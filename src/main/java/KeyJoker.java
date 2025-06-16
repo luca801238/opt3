@@ -1,18 +1,18 @@
-import Kamers.Kamer;
+import Rooms.Room;
 
 public class KeyJoker extends Joker{
     @Override
-    public void useJoker(Speler speler) {
-        Kamer kamer = speler.getHuidigeKamer();
+    public void useJoker(Player player) {
+        Room room = player.getCurrentRoom();
 
-        if (!kamer.accepteertKeyJoker()) {
+        if (!room.acceptsKeyJoker()) {
             System.out.println("De Key Joker werkt hier niet.");
             return;
         }
 
         System.out.println("-1 Key Joker");
-        speler.giveKey();
-        speler.removeKeyJoker();
+        player.giveKey();
+        player.removeKeyJoker();
 
     }
 }

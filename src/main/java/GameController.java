@@ -165,14 +165,18 @@ public class GameController {
         boolean correct = player.getCurrentRoom().checkAnswer(input);
 
         if (correct) {
-            answerController.verwerkAntwoord(correct);
+            if (player.getHasMonster()) {
+                answerController.verwerkAntwoord(true);
+            } else {
+                answerController.verwerkAntwoordZonderMonster(true);
+            }
             processCorrectAnswer();
         } else {
-            answerController.verwerkAntwoord(correct);
             if (!player.getHasMonster()) {
                 player.setHasMonster(true);
                 //player.getCurrentRoom().getMonster().showMonster();
             }
+            answerController.verwerkAntwoord(correct);
             questionHint();
         }
     }

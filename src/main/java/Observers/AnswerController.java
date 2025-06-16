@@ -20,5 +20,14 @@ public class AnswerController {
             o.update(juist);
         }
     }
+
+    public void verwerkAntwoordZonderMonster(boolean correct) {
+        for (spelObserver observer : observers) {
+            if (!(observer instanceof MonsterObserver)) {
+                observer.update(correct);
+            }
+        }
+    }
+
 }
 

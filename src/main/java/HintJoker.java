@@ -1,16 +1,16 @@
-import Kamers.Kamer;
+import Rooms.Room;
 import Hints.HintFactory;
 import Hints.HintProvider;
 
 public class HintJoker extends Joker {
     @Override
-    public void useJoker(Speler speler) {
+    public void useJoker(Player player) {
         System.out.println("-1 Hint Joker");
-        speler.removeHintJoker();
+        player.removeHintJoker();
 
-        Kamer kamer = speler.getHuidigeKamer();
+        Room room = player.getCurrentRoom();
         HintProvider provider = HintFactory.createHintProvider();
-        String hint = provider.getHint(kamer);
+        String hint = provider.getHint(room);
 
         System.out.println("Hint: " + hint);
     }

@@ -8,7 +8,7 @@ public class Main {
         System.out.println("Gebruik bijvoorbeeld: 'gebruik zwaard' of 'gebruik Kamerinfo'");
         System.out.println("------------------------------------------------");
 
-        Spel spel = new Spel();
-        spel.start();
+        Game game = new Game();
+        game.start();
     }
 }

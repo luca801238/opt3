@@ -1,22 +1,22 @@
 package Observers;
 
-import Kamers.Kamer;
+import Rooms.Room;
 
 public class MonsterObserver implements spelObserver {
-    private final Kamer kamer;
+    private final Room room;
 
-    public MonsterObserver(Kamer kamer) {
-        this.kamer = kamer;
+    public MonsterObserver(Room room) {
+        this.room = room;
     }
 
     @Override
     public void update(boolean juist) {
         if (juist) {
             System.out.println("✅ Monster is verdwenen.");
-            kamer.getMonster().verbergMonster();
+            room.getMonster().hideMonster();
         } else {
             System.out.println("❗ Er verschijnt een monster!");
-            kamer.getMonster().toonMonster();
+            room.getMonster().showMonster();
         }
     }
 }

@@ -1,3 +1,3 @@
 public abstract class Joker {
-    public abstract void useJoker(Speler speler);
+    public abstract void useJoker(Player player);
 }

@@ -1,3 +1,4 @@
+import Player.Player;
 import Rooms.Room;
 
 public class KeyJoker extends Joker{

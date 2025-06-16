@@ -1,3 +1,4 @@
+import Player.Player;
 import Rooms.Room;
 import Hints.HintFactory;
 import Hints.HintProvider;

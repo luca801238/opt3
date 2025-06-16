@@ -1,5 +1,6 @@
 import Hints.HintFactory;
 import Hints.HintProvider;
+import Player.Player;
 import Rooms.Room;
 
 public class Assistent {

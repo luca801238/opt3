@@ -2,6 +2,9 @@ import Rooms.*;
 import Observers.*;
 import java.util.*;
 import java.util.Scanner;
+import Player.Player;
+import Player.PlayerDAO;
+import items.Usable;
 
 public class GameController {
     private Player player;
@@ -38,7 +41,7 @@ public class GameController {
 
         player.setCurrentRoom(rooms.get(currentRoomIndex));
         player.addObject(new Kamerinfo());
-        player.addObject(new Sword());
+        player.addObject(new Zwaard());
 
 
 
@@ -88,7 +91,7 @@ public class GameController {
         else if (input.toLowerCase().startsWith("gebruik")) {
             String name = input.substring(7).trim().toLowerCase();
 
-            Optional<Object> found = player.getInventory().stream()
+            Optional<Usable> found = player.getInventory().stream()
                     .filter(v -> v.getClass().getSimpleName().equalsIgnoreCase(name))
                     .findFirst();
 
@@ -105,7 +108,6 @@ public class GameController {
                 System.out.println("Je bent al bezig met de opdracht.");
             }
         }
-
 
         else {
             processTask(input);

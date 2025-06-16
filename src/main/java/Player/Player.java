@@ -1,5 +1,8 @@
+package Player;
+
 import Rooms.Room;
 import java.util.*;
+import items.Usable;
 
 public class Player {
     private Room currentRoom;
@@ -50,13 +53,13 @@ public class Player {
         this.name = name;
     }
 
-    private List<Object> inventory = new ArrayList<>();
+    private List<Usable> inventory = new ArrayList<>();
 
-    public List<Object> getInventory() {
+    public List<Usable> getInventory() {
         return inventory;
     }
 
-    public void addObject(Object o) {
+    public void addObject(Usable o) {
         inventory.add(o);
     }
 

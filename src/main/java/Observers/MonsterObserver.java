@@ -18,15 +18,18 @@ public class MonsterObserver implements spelObserver {
 
     @Override
     public void update(boolean correct) {
-
         if (room != null && room.getMonster() != null) {
-            if (!correct && !gezien) {
-                room.getMonster().showMonster();
-                gezien = true;
+            if (!correct) {
+                if (!gezien) {
+                    room.getMonster().showMonster();
+                    gezien = true;
+                }
+                // laat monster zichtbaar
             } else {
                 room.getMonster().hideMonster();
                 gezien = false;
             }
         }
     }
+
 }

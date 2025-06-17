@@ -18,3 +18,5 @@ public class Kamerinfo implements Usable, Readable {
         System.out.println("Gebruik het commando: 'Gebruik zwaard', om een zwaard te gebruiken en het monster te verslaan!");
     }
 }
+
+//user story 21

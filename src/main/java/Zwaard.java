@@ -27,3 +27,5 @@ public class Zwaard implements Usable, Weapon {
         }
     }
 }
+
+//user story 21

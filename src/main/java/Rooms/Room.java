@@ -7,10 +7,6 @@ public abstract class Room {
 
     protected QuestionStrategy strategy;
 
-    public void setQuestionStrategy(QuestionStrategy strategy) {
-        this.strategy = strategy;
-    }
-
     public void startTask() {
         strategy.startTask();
     }
@@ -33,11 +29,6 @@ public abstract class Room {
 
     public String getMotivation() {
         return "";
-    }
-
-    public final void passRoom() {
-        startTask();
-        //Voor in de toekomst
     }
 
     public abstract String getName();

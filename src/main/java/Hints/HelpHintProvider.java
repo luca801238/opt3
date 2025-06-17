@@ -11,17 +11,17 @@ public class HelpHintProvider implements HintProvider {
 
         switch (name) {
             case "Sprint Planning":
-                return "Denk aan het verdelen van werk in kleine stukken.";
+                return "100 / 20 = ?.";
             case "Scrum Board":
-                return "Wat zijn de rollen binnen Scrum?";
+                return "Wie hoort niet op een scrum team?";
             case "Daily Scrum":
-                return "Wat doet een kolom 'In Progress'?";
+                return "Wat klinkt werk gerelateerd?";
             case "Sprint Review":
-                return "Wat toon je in een Sprint Review?";
+                return "Denk aan wie niet thuis hoort op een scrum team van de vorige vraag.";
             case "Sprint Retrospective":
-                return "Reflecteer op wat goed ging én wat beter kan.";
+                return "De volgorde is precies zoals het staat.";
             case "TIA":
-                return "Test-Impact-Analyse toont wat moet worden getest.";
+                return "Het langste antwoord, is vaak de juiste.";
             default:
                 return "Algemene hint: denk na over het doel van deze kamer.";
         }

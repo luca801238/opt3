@@ -3,6 +3,8 @@ import Rooms.Room;
 import Hints.HintFactory;
 import Hints.HintProvider;
 
+
+// user story 22: jokers
 public class HintJoker extends Joker {
     @Override
     public void useJoker(Player player) {

@@ -1,6 +1,7 @@
 import Player.Player;
 import Rooms.Room;
 
+// user story 22: jokers
 public class KeyJoker extends Joker{
     @Override
     public void useJoker(Player player) {

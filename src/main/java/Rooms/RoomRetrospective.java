@@ -16,6 +16,11 @@ public class RoomRetrospective extends Room {
     }
 
     @Override
+    public String getHint() {
+        return "De volgorde is precies zoals het staat.";
+    }
+
+    @Override
     public String getInstruction() {
         return "instructie, sprint retrospective";
     }

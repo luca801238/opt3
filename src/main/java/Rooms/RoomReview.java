@@ -18,6 +18,11 @@ public class RoomReview extends Room {
     }
 
     @Override
+    public String getHint() {
+        return "Denk aan wie niet thuis hoort op een scrum team van de vorige vraag.";
+    }
+
+    @Override
     public boolean acceptsKeyJoker() {
         return true;
     }

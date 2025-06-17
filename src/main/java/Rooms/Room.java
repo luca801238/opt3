@@ -23,6 +23,10 @@ public abstract class Room {
         return false;
     }
 
+    public String getHint() {
+        return "";
+    }
+
     public String getInstruction() {
         return "";
     }

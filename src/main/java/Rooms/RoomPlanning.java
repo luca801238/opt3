@@ -19,6 +19,11 @@ public class RoomPlanning extends Room {
     }
 
     @Override
+    public String getHint() {
+        return "100 / 20 = ?.";
+    }
+
+    @Override
     public String getInstruction() {
         return "instructie, sprint planning";
     }

@@ -22,6 +22,11 @@ public class RoomScrum extends Room {
     }
 
     @Override
+    public String getHint() {
+        return "Wat klinkt werk gerelateerd?";
+    }
+
+    @Override
     public boolean acceptsKeyJoker() {
         return true;
     }

@@ -13,9 +13,11 @@ public class Kamerinfo implements Usable, Readable {
     @Override
     public void showMessage(Player player) {
         Room room = player.getCurrentRoom();
-        System.out.println("Informatie over deze kamer: " + room.getName());
-        System.out.println("Hint: " + new HelpHintProvider().getHint(room));
-        System.out.println("Gebruik het commando: 'Gebruik zwaard', om een zwaard te gebruiken en het monster te verslaan!");
+        System.out.println("Informatie over kamer: " + room.getName());
+        System.out.println("Assistent beschikbaar: " + room.hasAssistent());
+        System.out.println("Accepteert KeyJoker: " + room.acceptsKeyJoker());
+        System.out.println("Monster in deze kamer: " + room.getMonster());
+        System.out.println("Gebruik het commando: 'gebruik zwaard', om een zwaard te gebruiken en het monster te verslaan als het verschijnt!");
     }
 }
 

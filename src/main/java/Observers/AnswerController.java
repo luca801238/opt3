@@ -3,22 +3,25 @@ package Observers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnswerController {
+public class AnswerController implements Subject {
     private List<spelObserver> observers = new ArrayList<>();
 
+    @Override
     public void voegObserverToe(spelObserver ob) {
         observers.add(ob);
     }
 
-    public void verwijderObserver(spelObserver o) {
-        observers.remove(o);
+
+    @Override
+    public void verwerkObservers(boolean juist) {
+        for (spelObserver o : observers) {
+            o.update(juist);
+        }
     }
 
     public void verwerkAntwoord(boolean juist) {
         System.out.println("Speler gaf antwoord: " + (juist ? "goed" : "fout"));
-        for (spelObserver o : observers) {
-            o.update(juist);
-        }
+        verwerkObservers(juist);
     }
 
     public void verwerkAntwoordZonderMonster(boolean correct) {
@@ -28,6 +31,4 @@ public class AnswerController {
             }
         }
     }
-
 }
-

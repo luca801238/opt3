@@ -38,9 +38,9 @@ public class Mock {
                 "Draak".equals(mock.receivedName) &&
                 mock.timesExecuted == 1) {
 
-            System.out.println("✅ Test geslaagd: methode is 1x aangeroepen met juiste naam");
+            System.out.println("Test geslaagd: methode is 1x aangeroepen met juiste naam");
         } else {
-            System.out.println("❌ Test gefaald");
+            System.out.println("Test gefaald");
         }
 
         monster.hideMonster();
@@ -48,9 +48,9 @@ public class Mock {
         if (mock.isHidden &&
                 "Draak".equals(mock.receivedName) &&
                 mock.timesHidden == 1) {
-            System.out.println("✅ Test geslaagd: hideMonster methode is 1x aangeroepen met juiste naam");
+            System.out.println("Test geslaagd: hideMonster methode is 1x aangeroepen met juiste naam");
         } else {
-            System.out.println("❌ Test gefaald voor hideMonster");
+            System.out.println("Test gefaald voor hideMonster");
         }
     }
 }

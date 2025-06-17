@@ -12,6 +12,11 @@ public class RoomBoard extends Room {
     }
 
     @Override
+    public String getHint() {
+        return "Wie hoort niet op een scrum team?";
+    }
+
+    @Override
     public String getInstruction() {
         return "instructie, scrum board";
     }

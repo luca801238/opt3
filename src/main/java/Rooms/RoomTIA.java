@@ -21,6 +21,11 @@ public class RoomTIA extends Room {
     }
 
     @Override
+    public String getHint() {
+        return "Het langste antwoord, is vaak de juiste.";
+    }
+
+    @Override
     public String getName() {
         return "TIA";
     }

@@ -38,7 +38,8 @@ public class GameController {
 
 
         answerController.voegObserverToe(new DeurObserver());
-        answerController.voegObserverToe(new Status());
+        Status status = new Status(monsterObserver);
+        answerController.voegObserverToe(status);
         answerController.voegObserverToe(monsterObserver);
 
         player.setCurrentRoom(rooms.get(currentRoomIndex));

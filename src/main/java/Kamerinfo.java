@@ -16,7 +16,6 @@ public class Kamerinfo implements Usable, Readable {
         System.out.println("Informatie over kamer: " + room.getName());
         System.out.println("Assistent beschikbaar: " + room.hasAssistent());
         System.out.println("Accepteert KeyJoker: " + room.acceptsKeyJoker());
-        System.out.println("Monster in deze kamer: " + room.getMonster());
         System.out.println("Gebruik het commando: 'gebruik zwaard', om een zwaard te gebruiken en het monster te verslaan als het verschijnt!");
     }
 }

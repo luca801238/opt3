@@ -185,6 +185,7 @@ public class GameController {
                 monsterObserver.setRoom(player.getCurrentRoom());
                 player.setHasMonster(false);
                 completedRooms.clear();
+                Zwaard.reset();
 
                 PlayerDAO.save(player.getName(), 0);
 

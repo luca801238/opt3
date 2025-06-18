@@ -21,12 +21,12 @@ public class RoomRetrospective extends Room {
 
     @Override
     public String getInstruction() {
-        return "instructie, sprint retrospective";
+        return "A1 B2 C3";
     }
 
     @Override
     public String getMotivation() {
-        return "motivatie, sprint retrospective";
+        return "Je bent bijna klaar!";
     }
 
     // user story 3: korte opdracht

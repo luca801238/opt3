@@ -12,17 +12,17 @@ public class RoomBoard extends Room {
 
     @Override
     public String getHint() {
-        return "Wie hoort niet op een scrum team?";
+        return "Denk na over wie het Scrum Board gebruikt en welke elementen bijdragen aan het organiseren van het werk binnen het team.";
     }
 
     @Override
     public String getInstruction() {
-        return "instructie, scrum board";
+        return "Kijk goed naar wat elk element betekent \n Taken zijn de kleinste onderdelen van werk. \n User stories en epics beschrijven wensen van gebruikers en grotere doelen. \n Blokkades zijn dingen die het team tegenhouden. \n Bedenk nu of stakeholder feedback iets is dat vast onderdeel is van het bord of via andere middelen wordt opgehaald.";
     }
 
     @Override
     public String getMotivation() {
-        return "motivatie, scrum board";
+        return "Je bent al scherp bezig! Ga zo door.";
     }
 
     // user story 3: korte opdracht
@@ -34,7 +34,7 @@ public class RoomBoard extends Room {
                 new String[]{
                         "Taken, user stories, epics",
                         "Stakeholder feedback",
-                        "Blokkades (impediments)"
+                        "Blokkades"
                 },
                 "B"
         );

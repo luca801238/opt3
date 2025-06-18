@@ -19,7 +19,7 @@ public class RoomReview extends Room {
 
     @Override
     public String getHint() {
-        return "Denk aan wie niet thuis hoort op een scrum team van de vorige vraag.";
+        return "Denk aan wat niet thuis hoorde op een scrumboard van de vorige vraag.";
     }
 
     @Override

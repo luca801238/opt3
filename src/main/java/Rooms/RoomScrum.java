@@ -11,9 +11,9 @@ public class RoomScrum extends Room {
         this.strategy = new MultipleChoiceQuestion(
                 "Vraag: Wat zeg je tijdens een Daily Scrum?",
                 new String[]{
-                        "A. Wat ik gisteren heb gegeten",
-                        "B. Wat ik gisteren heb gedaan, wat ik vandaag ga doen en of ik blokkades heb",
-                        "C. Wat ik van het weer vond"
+                        "Wat ik gisteren heb gegeten",
+                        "Wat ik gisteren heb gedaan, wat ik vandaag ga doen en of ik blokkades heb",
+                        "Wat ik van het weer vond"
                 },
                 "B"
         );

@@ -16,7 +16,7 @@ public class Main {
         System.out.println("Aan het begin van het spel krijg je de keauze tussen twee verschillende soorten Jokers. \n");
         System.out.println("COMMANDOS");
         System.out.println("'status' - Laat je huidige kamer zien, het aantal kamers dat je hebt gehaald en of er een monster actief is.");
-        System.out.println("'gebruik zwaard' - hiermee kan je een monster verslaan. (Let op, deze krijg je maar 1 keer, ook al reset je de game).");
+        System.out.println("'gebruik zwaard' - hiermee kan je 1 keer een monster verslaan.");
         System.out.println("'gebruik kamerinfo' - informatie over je huidige kamer: of de assistent beschikbaar is en of je gebruik kunt maken van de Key Joker.");
         System.out.println("------------------------------------------------");
 

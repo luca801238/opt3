@@ -5,7 +5,7 @@ import Items.Weapon;
 
 //user story 21
 public class Zwaard implements Usable, Weapon {
-    private boolean used = false;
+    private static boolean used = false;
 
     @Override
     public void use(Player player) {
@@ -27,5 +27,9 @@ public class Zwaard implements Usable, Weapon {
         } else {
             System.out.println("Er is geen monster actief.");
         }
+    }
+
+    public static void reset() {
+        used = false;
     }
 }

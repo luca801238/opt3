@@ -19,17 +19,17 @@ public class RoomPlanning extends Room {
 
     @Override
     public String getHint() {
-        return "100 / 20 = ?.";
+        return "Denk niet alleen aan hoeveel taken je kunt doen, maar aan hoeveel je betrouwbaar kunt afronden met het hele team in 2 weken. Kwaliteit boven kwantiteit.";
     }
 
     @Override
     public String getInstruction() {
-        return "instructie, sprint planning";
+        return "Een sprint van 2 weken duurt meestal 10 werkdagen. \n Een user story bevat meestal rond de 4 taken. \n Het is mogelijk om rond de 2 taken per dag uit te voeren.";
     }
 
     @Override
     public String getMotivation() {
-        return "motivatie, sprint planning";
+        return "Je zat er niet ver vandaan. Denk nog eens goed na.";
     }
 
     // user story 3: korte opdracht

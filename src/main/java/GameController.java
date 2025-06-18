@@ -49,10 +49,6 @@ public class GameController {
         player.addObject(new Zwaard());
 
 
-
-
-
-
     }
 
     public void chooseStartJoker() {
@@ -111,6 +107,7 @@ public class GameController {
         }
         else if (input.equalsIgnoreCase("ga door")) {
             if (!taskStarted) {
+                player.getCurrentRoom().doorloopKamer(currentRoomIndex + 1);
                 startTask();
             } else {
                 System.out.println("Je bent al bezig met de opdracht.");
@@ -139,8 +136,8 @@ public class GameController {
             monsterObserver.setRoom(player.getCurrentRoom());
 
             taskStarted = false;
-            System.out.println("Je bent nu in kamer " + (currentRoomIndex + 1) + ": " + player.getCurrentRoom().getName());
             askUseKeyJoker();
+            player.getCurrentRoom().doorloopKamer(currentRoomIndex + 1);
             startTask();
 
             PlayerDAO.save(player.getName(), currentRoomIndex);
@@ -202,6 +199,7 @@ public class GameController {
 
                 PlayerDAO.save(player.getName(), 0);
 
+                player.getCurrentRoom().doorloopKamer(currentRoomIndex + 1);
                 startTask();
                 break;
             }
@@ -279,7 +277,6 @@ public class GameController {
 
     // SHOTGUN SURGERY VOORKOMEN!
     private void startTask() {
-        player.getCurrentRoom().startTask();
         taskStarted = true;
     }
 }

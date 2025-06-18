@@ -7,7 +7,12 @@ public abstract class Room {
 
     protected QuestionStrategy strategy;
 
-    public void startTask() {
+    public final void doorloopKamer(int kamerNummer) {
+        System.out.println("Je betreedt kamer " + kamerNummer + ": " + getName());
+        startTask();
+    }
+
+        public void startTask() {
         strategy.startTask();
     }
 

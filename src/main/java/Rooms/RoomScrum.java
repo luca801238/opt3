@@ -1,8 +1,6 @@
 package Rooms;
-
-import Strategy.MultipleChoiceQuestion;
-
 // user story 9: elke kamer is subklasse
+import Strategy.MultipleChoiceQuestion;
 
 public class RoomScrum extends Room {
     private Monster monster = new Monster("Vertraging");

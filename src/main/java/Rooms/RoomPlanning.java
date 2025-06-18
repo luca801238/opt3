@@ -1,6 +1,5 @@
 package Rooms;
 // user story 9: elke kamer is subklasse
-
 import Strategy.OpenQuestion;
 
 public class RoomPlanning extends Room {

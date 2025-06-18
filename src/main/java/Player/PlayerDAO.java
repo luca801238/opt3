@@ -16,7 +16,6 @@ public class PlayerDAO {
         }
     }
 
-
     public static int loadCurrentRoom(String name) {
         try (Connection conn = Database.getConnection()) {
             String sql = "SELECT huidige_kamer_index FROM speler WHERE naam = ?";

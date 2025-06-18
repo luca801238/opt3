@@ -21,7 +21,6 @@ public class Stub {
         }
     }
 
-
     // stub test: user story 26
     public static void main(String[] args) {
         ActionStub stub = new ActionStub();
@@ -44,6 +43,3 @@ public class Stub {
         }
     }
 }
-
-
-

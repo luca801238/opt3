@@ -1,8 +1,8 @@
 import Player.Player;
-import items.Usable;
-import items.Weapon;
+import Items.Usable;
+import Items.Weapon;
 
-
+//user story 21
 public class Zwaard implements Usable, Weapon {
     private boolean used = false;
 
@@ -27,5 +27,3 @@ public class Zwaard implements Usable, Weapon {
         }
     }
 }
-
-//user story 21

@@ -1,8 +1,7 @@
 package Rooms;
-
+// user story 9: elke kamer is subklasse
 import Strategy.MultipleChoiceQuestion;
 
-// user story 9: elke kamer is subklasse
 public class RoomBoard extends Room {
     private Monster monster = new Monster("Chaos");
 
@@ -40,7 +39,6 @@ public class RoomBoard extends Room {
                 "B"
         );
     }
-
 
     @Override
     public String getName() {

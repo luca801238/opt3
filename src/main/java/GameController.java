@@ -1,10 +1,9 @@
 import Rooms.*;
 import Observers.*;
 import java.util.*;
-import java.util.Scanner;
 import Player.Player;
 import Player.PlayerDAO;
-import items.Usable;
+import Items.Usable;
 
 public class GameController {
     private Player player;
@@ -23,8 +22,6 @@ public class GameController {
         currentRoomIndex = PlayerDAO.loadCurrentRoom(naam);
         player = new Player(naam);
 
-
-
         rooms = List.of(
                 new RoomPlanning(),
                 new RoomScrum(),
@@ -36,9 +33,8 @@ public class GameController {
 
         monsterObserver = new MonsterObserver(null);
 
-
         answerController.voegObserverToe(new DeurObserver());
-        Status status = new Status();
+        StatusObserver status = new StatusObserver();
         answerController.voegObserverToe(status);
         answerController.voegObserverToe(monsterObserver);
 
@@ -47,14 +43,12 @@ public class GameController {
 
         player.addObject(new Kamerinfo());
         player.addObject(new Zwaard());
-
-
     }
 
     public void chooseStartJoker() {
         System.out.println("Kies een joker om mee te beginnen:");
-        System.out.println("1. Hint Joker (voor hulp bij opdrachten)");
-        System.out.println("2. Key Joker (voor een sleutel in bepaalde kamers)");
+        System.out.println("[1] Hint Joker, voor hulp bij opdrachten");
+        System.out.println("[2] Key Joker, voor een sleutel (beschikbaar in een beperkt aantal bepaalde kamers)");
         String choice = scanner.nextLine().trim();
 
         switch (choice) {
@@ -85,14 +79,11 @@ public class GameController {
 
             int askedNummer = Commands.getRoomNumber(input);
             processNavigation(askedNummer);
-        }
-        else if (input.equalsIgnoreCase("status")) {
+        } else if (input.equalsIgnoreCase("status")) {
             player.status();
-        }
-        else if (input.equalsIgnoreCase("assistent")) {
+        } else if (input.equalsIgnoreCase("assistent")) {
             useAssistent();
-        }
-        else if (input.toLowerCase().startsWith("gebruik")) {
+        } else if (input.toLowerCase().startsWith("gebruik")) {
             String name = input.substring(7).trim().toLowerCase();
 
             Optional<Usable> found = player.getInventory().stream()
@@ -104,17 +95,14 @@ public class GameController {
             } else {
                 System.out.println("Je hebt dit voorwerp niet.");
             }
-        }
-        else if (input.equalsIgnoreCase("ga door")) {
+        } else if (input.equalsIgnoreCase("ga door")) {
             if (!taskStarted) {
                 player.getCurrentRoom().doorloopKamer(currentRoomIndex + 1);
                 startTask();
             } else {
                 System.out.println("Je bent al bezig met de opdracht.");
             }
-        }
-
-        else {
+        } else {
             processTask(input);
         }
     }
@@ -178,11 +166,12 @@ public class GameController {
             questionHint();
         }
     }
+
     // user story 2: kamers wisselen
     private void endPrompt() {
 
         System.out.println("Je hebt alle kamers doorlopen en het spel uitgespeeld! Goed gedaan!");
-        System.out.println("Wil je opnieuw spelen? Zeg ja/nee:");
+        System.out.println("Wil je opnieuw spelen? (ja/nee)");
 
         while (true) {
 

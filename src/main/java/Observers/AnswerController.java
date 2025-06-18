@@ -1,7 +1,6 @@
 package Observers;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class AnswerController implements Subject {
     private List<spelObserver> observers = new ArrayList<>();

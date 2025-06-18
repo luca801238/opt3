@@ -11,7 +11,6 @@ public class MonsterState {
         actief = false;
     }
 
-
     public static boolean isActief() {
         return actief;
     }

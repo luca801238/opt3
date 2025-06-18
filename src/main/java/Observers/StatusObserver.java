@@ -1,6 +1,6 @@
 package Observers;
 
-public class Status implements spelObserver {
+public class StatusObserver implements spelObserver {
     private int score = 0;
 
     @Override

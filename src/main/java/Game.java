@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Game {
     private final GameController controller;
     private Scanner scanner;
-    
 
     public Game() {
         this.controller = new GameController();

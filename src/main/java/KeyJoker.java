@@ -15,6 +15,5 @@ public class KeyJoker extends Joker{
         System.out.println("-1 Key Joker");
         player.giveKey();
         player.removeKeyJoker();
-
     }
 }

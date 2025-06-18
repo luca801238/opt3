@@ -2,7 +2,7 @@ package Player;
 
 import Rooms.Room;
 import java.util.*;
-import items.Usable;
+import Items.Usable;
 
 public class Player {
     private Room currentRoom;
@@ -12,6 +12,7 @@ public class Player {
     private int keys = 0;
     private int hintJokers = 0;
     private int keyJokers = 0;
+    private List<Usable> inventory = new ArrayList<>();
 
     public void giveKey() {
         keys++;
@@ -53,8 +54,6 @@ public class Player {
         this.name = name;
     }
 
-    private List<Usable> inventory = new ArrayList<>();
-
     public List<Usable> getInventory() {
         return inventory;
     }
@@ -69,14 +68,6 @@ public class Player {
 
     public Room getCurrentRoom() {
         return currentRoom;
-    }
-
-    public void setRoomsCompleted(int roomsCompleted) {
-        this.roomsCompleted = roomsCompleted;
-    }
-
-    public int getRoomsCompleted() {
-        return roomsCompleted;
     }
 
     public void addCompletedRoom() {

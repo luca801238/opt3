@@ -1,6 +1,5 @@
 package Rooms;
 // user story 9: elke kamer is subklasse
-
 import Strategy.MatchingQuestion;
 
 public class RoomRetrospective extends Room {

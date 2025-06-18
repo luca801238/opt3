@@ -1,3 +1,4 @@
+import Observers.MonsterState;
 import Player.Player;
 import Items.Usable;
 import Items.Weapon;
@@ -14,12 +15,13 @@ public class Zwaard implements Usable, Weapon {
     @Override
     public void attack(Player player) {
         if (used) {
-            System.out.println("Je hebt het zwaard al gebruikt in deze kamer!");
+            System.out.println("Je hebt het zwaard al gebruikt.");
             return;
         }
         if (player.getHasMonster()) {
             System.out.println("Je hebt het zwaard gebruikt om het monster te verslaan!");
             player.setHasMonster(false);
+            MonsterState.resetActief();
             player.addCompletedRoom();
             used = true;
         } else {

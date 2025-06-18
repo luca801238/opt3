@@ -5,8 +5,7 @@ import Rooms.Room;
 public class MonsterObserver implements spelObserver {
     private Room room;
     private boolean gezien = false;
-    private boolean visible = false;
-
+    private boolean heeftEffect = false;
 
     public MonsterObserver(Room room) {
         this.room = room;
@@ -15,11 +14,13 @@ public class MonsterObserver implements spelObserver {
     public void setRoom(Room room) {
         this.room = room;
         this.gezien = false;
+        this.heeftEffect = false;
     }
 
-    public boolean isVisible(){
-        return visible;
+    public boolean heeftEffect() {
+        return heeftEffect;
     }
+
 
     @Override
     public void update(boolean correct) {
@@ -29,14 +30,15 @@ public class MonsterObserver implements spelObserver {
                     room.getMonster().showMonster();
                     gezien = true;
                 }
-                visible = true;
+                heeftEffect = true;
                 // laat monster zichtbaar
             } else {
                 room.getMonster().hideMonster();
                 gezien = false;
-                visible = false;
+                heeftEffect = false;
             }
         }
     }
+
 
 }

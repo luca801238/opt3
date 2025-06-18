@@ -5,13 +5,13 @@ public class Status implements spelObserver {
     private MonsterObserver monsterObserver;
 
     public Status(MonsterObserver monsterObserver) {
-        this.monsterObserver = this.monsterObserver;
+        this.monsterObserver = monsterObserver;
     }
 
     @Override
     public void update(boolean juist) {
         if (juist) {
-            if (monsterObserver != null && monsterObserver.isVisible()) {
+            if (monsterObserver != null && monsterObserver.heeftEffect()) {
                 score += 5;
                 System.out.println("Monster zichtbaar! Halve score. Huidige score: " + score);
             } else {

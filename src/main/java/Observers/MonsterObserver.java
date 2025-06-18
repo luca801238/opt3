@@ -17,9 +17,6 @@ public class MonsterObserver implements spelObserver {
         this.heeftEffect = false;
     }
 
-    public boolean heeftEffect() {
-        return heeftEffect;
-    }
 
 
     @Override
@@ -30,12 +27,13 @@ public class MonsterObserver implements spelObserver {
                     room.getMonster().showMonster();
                     gezien = true;
                 }
-                heeftEffect = true;
+                MonsterState.setActief();
+
                 // laat monster zichtbaar
             } else {
                 room.getMonster().hideMonster();
                 gezien = false;
-                heeftEffect = false;
+                MonsterState.resetActief();
             }
         }
     }

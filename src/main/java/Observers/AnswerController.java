@@ -11,6 +11,10 @@ public class AnswerController implements Subject {
         observers.add(ob);
     }
 
+    @Override
+    public void verwijderObserver(spelObserver ob) {
+        observers.add(ob);
+    }
 
     @Override
     public void verwerkObservers(boolean juist) {

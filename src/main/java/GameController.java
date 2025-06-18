@@ -38,7 +38,7 @@ public class GameController {
 
 
         answerController.voegObserverToe(new DeurObserver());
-        Status status = new Status(monsterObserver);
+        Status status = new Status();
         answerController.voegObserverToe(status);
         answerController.voegObserverToe(monsterObserver);
 
